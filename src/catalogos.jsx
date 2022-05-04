@@ -3,14 +3,14 @@ export const activitiesOptions = [
     value: 'bienes',
     label: 'Bienes y servicios adquiridos con criptomonedas'
   },
-  {
-    value: 'baja o alta',
-    label: 'Baja o alta de criptomonedas'
-  },
-  {
-    value: 'gastos de mineria',
-    label: 'Gastos de minería de criptomonedas'
-  }
+  // {
+  //   value: 'baja o alta',
+  //   label: 'Baja o alta de criptomonedas'
+  // },
+  // {
+  //   value: 'gastos de mineria',
+  //   label: 'Gastos de minería de criptomonedas'
+  // }
 ]
 
 export const operations = [
