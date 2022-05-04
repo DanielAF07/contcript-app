@@ -28,7 +28,7 @@ function FormScreen() {
   }
   
   return (
-    <div className="flex min-h-screen justify-center font-inter text-white">
+    <div className="flex justify-center font-inter text-white">
       <form className='flex flex-col w-full max-w-md px-4' onSubmit={handleSubmit}>
         <StyledSelect
           label="Tipo de actividad"
