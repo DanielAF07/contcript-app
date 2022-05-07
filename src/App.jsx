@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const { sent, loading } = useContext(FormContext)
 
+  return null
+
   return (
     <div className="flex flex-col font-inter text-white">
       <img src={Logo} alt="Contcript logo" className="h-48 object-contain" />
