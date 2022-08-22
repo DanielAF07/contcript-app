@@ -2,7 +2,7 @@ export const activitiesOptions = [
   {
     value: 'bienes',
     label: 'Bienes y servicios adquiridos con criptomonedas'
-  },
+  }
   // {
   //   value: 'baja o alta',
   //   label: 'Baja o alta de criptomonedas'
