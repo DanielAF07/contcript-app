@@ -13,11 +13,13 @@ function Calculator () {
     <div className='flex flex-col font-inter text-white'>
       <img src={Logo} alt='Contcript logo' className='h-48 object-contain cursor-pointer' onClick={() => navigate('/')} />
 
-      {loading && (
-        <div className='flex justify-center'>
-          <Spinner />
-        </div>
-      )}
+      {loading
+        ? (
+          <div className='flex justify-center'>
+            <Spinner />
+          </div>
+          )
+        : null}
 
       {!sent && !loading && <FormScreen />}
       {sent && !loading && <ResultsScreen />}
