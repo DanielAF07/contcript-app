@@ -3,13 +3,11 @@ import toCommas from '../helpers/toCommas'
 import { useNavigate } from 'react-router-dom'
 import useCryptos from '../hooks/useCryptos'
 import StyledButton from '../components/common/StyledButton'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import ModalSend from '../components/ModalSend'
-import { WalletContext } from '../context/WalletContext'
 
 const Home = () => {
   const navigate = useNavigate()
-  const { wallet } = useContext(WalletContext)
   const { getTotal, sendCryptos, receiveCryptos, cryptos } = useCryptos({
     BTC: 19876.28,
     BNB: 6000,
@@ -31,13 +29,13 @@ const Home = () => {
 
               <div className='grid grid-cols-3 grid-rows-3 mt-6'>
                 <p className='font-bold'>BTC</p>
-                <p className='text-left col-span-2'>$ {toCommas(cryptos.BTC)}</p>
+                <p className='text-left col-span-2'>$ {toCommas(cryptos?.BTC)}</p>
 
                 <p className='font-bold'>BNB</p>
-                <p className='text-left col-span-2'>$ {toCommas(cryptos.BNB)}</p>
+                <p className='text-left col-span-2'>$ {toCommas(cryptos?.BNB)}</p>
 
                 <p className='font-bold'>ETH</p>
-                <p className='text-left col-span-2'>$ {toCommas(cryptos.ETH)}</p>
+                <p className='text-left col-span-2'>$ {toCommas(cryptos?.ETH)}</p>
               </div>
 
               <div className='flex justify-between mt-4'>
