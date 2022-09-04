@@ -4,12 +4,13 @@ import { useWalletStore } from '../stores/WalletStore'
 
 const useCryptos = (initialState) => {
   const cryptos = useWalletStore((state) => state.cryptos)
+  const address = useWalletStore((state) => state.address)
   const setCryptos = useWalletStore((state) => state.setCryptos)
   const setCrypto = useWalletStore((state) => state.setCrypto)
   const getBalance = useWalletStore((state) => state.getBalance)
 
   useEffect(() => {
-    if (Object.keys(cryptos).length === 0) {
+    if (Object.keys(cryptos).length === 0 && initialState) {
       setCryptos(initialState)
     }
   }, [])
@@ -47,7 +48,8 @@ const useCryptos = (initialState) => {
     sendCryptos,
     receiveCryptos,
     getTotal,
-    cryptos
+    cryptos,
+    address
   }
 }
 

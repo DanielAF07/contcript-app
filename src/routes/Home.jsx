@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import useCryptos from '../hooks/useCryptos'
 import StyledButton from '../components/common/StyledButton'
 import { useState } from 'react'
+import ModalReceive from '../components/ModalReceive'
 import ModalSend from '../components/ModalSend'
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
   })
 
   const [sendIsOpen, setSendIsOpen] = useState(false)
+  const [receiveIsOpen, setReceiveIsOpen] = useState(false)
 
   return (
     <>
@@ -41,13 +43,14 @@ const Home = () => {
               <div className='flex justify-between mt-4'>
                 <button
                   className='bg-white/40 border-none rounded-xl py-3 px-10 my-4 font-bold text-white/80'
-                  onClick={() => sendCryptos({ crypto: 'BTC' })}
+                  // onClick={() => sendCryptos({ crypto: 'BTC' })}
+                  onClick={() => setSendIsOpen(true)}
                 >Enviar
                 </button>
                 <button
                   className='bg-white/40 border-none rounded-xl py-3 px-10 my-4 font-bold text-white/80'
                   // onClick={() => receiveCryptos({ crypto: 'BTC' })}
-                  onClick={() => setSendIsOpen(true)}
+                  onClick={() => setReceiveIsOpen(true)}
                 >Recibir
                 </button>
               </div>
@@ -62,10 +65,13 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ModalReceive
+        isOpen={receiveIsOpen}
+        setIsOpen={setReceiveIsOpen}
+      />
       <ModalSend
         isOpen={sendIsOpen}
         setIsOpen={setSendIsOpen}
-        onComplete={() => receiveCryptos({ crypto: 'BTC' })}
       />
     </>
   )
