@@ -1,14 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
-import React, { Fragment, useContext, useRef } from 'react'
+import React, { Fragment, useRef } from 'react'
 import toast from 'react-hot-toast'
-import { WalletContext } from '../context/WalletContext'
+import { useWalletStore } from '../stores/WalletStore'
 
 const ModalSend = ({ isOpen, setIsOpen, onComplete }) => {
-  const { wallet } = useContext(WalletContext)
+  const address = useWalletStore((state) => state.address)
   const addressRef = useRef(null)
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(wallet.address)
+    navigator.clipboard.writeText(address)
     toast.success('Dirección copiada al portapapeles')
   }
 
@@ -41,9 +41,9 @@ const ModalSend = ({ isOpen, setIsOpen, onComplete }) => {
             <Dialog.Description>
               Escanea la dirección para recibir pago.
             </Dialog.Description>
-            <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${wallet.address}`} alt='' />
+            <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${address}`} alt='' />
             <div className='relative rounded-full bg-slate-200 px-4 max-w-[200px]'>
-              <p className='truncate pr-4' ref={addressRef}>{wallet.address}</p>
+              <p className='truncate pr-4' ref={addressRef}>{address}</p>
               <button
                 className='absolute right-2 top-0.5'
                 onClick={copyToClipboard}
