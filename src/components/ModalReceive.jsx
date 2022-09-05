@@ -2,7 +2,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment, useRef } from 'react'
 import toast from 'react-hot-toast'
 import useCryptos from '../hooks/useCryptos'
-import { useWalletStore } from '../stores/WalletStore'
 
 const ModalReceive = ({ isOpen, setIsOpen }) => {
   const { address, receiveCryptos } = useCryptos()

@@ -8,7 +8,7 @@ const ModalSend = ({ isOpen, setIsOpen }) => {
   const { sendCryptos, address, cryptos } = useCryptos()
   const cryptoKeys = useWalletStore((state) => state.getCryptoKeys())
   const [formData, setFormData] = React.useState({
-    crypto: cryptoKeys[0],
+    crypto: '',
     amount: 0,
     address: ''
   })
@@ -22,6 +22,9 @@ const ModalSend = ({ isOpen, setIsOpen }) => {
 
   const onSubmit = () => {
     // Validate
+    if (formData.crypto === '') {
+      return toast.error('Selecciona una criptomoneda')
+    }
     if (formData.amount <= 0) {
       return toast.error('El monto a enviar debe ser mayor a 0')
     }
@@ -42,7 +45,7 @@ const ModalSend = ({ isOpen, setIsOpen }) => {
 
   const resetFormData = () => {
     setFormData({
-      crypto: cryptoKeys[0],
+      crypto: '',
       amount: 0,
       address: ''
     })
@@ -89,6 +92,7 @@ const ModalSend = ({ isOpen, setIsOpen }) => {
               value={formData.crypto}
               onChange={handleChange}
             >
+              <option value='' disabled>Selecciona una criptomoneda</option>
               {cryptoKeys.map((key) => (
                 <option key={key} value={key}>
                   {key}
