@@ -7,6 +7,7 @@ import { useState } from 'react'
 import ModalReceive from '../components/ModalReceive'
 import ModalSend from '../components/ModalSend'
 import ModalHelp from '../components/ModalHelp'
+import ModalCryptos from '../components/ModalCryptos'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -19,6 +20,7 @@ const Home = () => {
   const [sendIsOpen, setSendIsOpen] = useState(false)
   const [receiveIsOpen, setReceiveIsOpen] = useState(false)
   const [helpIsOpen, setHelpIsOpen] = useState(false)
+  const [cryptosIsOpen, setCryptosIsOpen] = useState(false)
 
   return (
     <>
@@ -61,7 +63,7 @@ const Home = () => {
                 <StyledButton onClick={() => navigate('/calculator')}>Asesoramiento contable y fiscal del uso de criptomonedas</StyledButton>
                 <StyledButton onClick={() => { window.location.href = 'https://drive.google.com/file/d/1_o8yOTgm2_cqjfMCtAg0bOeYI0ZGjDsX/view?usp=sharing' }}>Guia para introducirse a las criptomonedas</StyledButton>
                 <StyledButton onClick={() => setHelpIsOpen(true)}>Asistencia técnica y consultoría</StyledButton>
-                <StyledButton>Tokens ganadores</StyledButton>
+                <StyledButton onClick={() => setCryptosIsOpen(true)}>Tokens ganadores</StyledButton>
               </div>
             </div>
           </div>
@@ -78,6 +80,10 @@ const Home = () => {
       <ModalHelp
         isOpen={helpIsOpen}
         setIsOpen={setHelpIsOpen}
+      />
+      <ModalCryptos
+        isOpen={cryptosIsOpen}
+        setIsOpen={setCryptosIsOpen}
       />
     </>
   )
