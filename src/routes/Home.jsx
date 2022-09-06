@@ -9,13 +9,15 @@ import ModalSend from '../components/ModalSend'
 import ModalHelp from '../components/ModalHelp'
 import ModalCryptos from '../components/ModalCryptos'
 
+const initialCryptos = {
+  BTC: 19876.28,
+  BNB: 6000,
+  ETH: 4000
+}
+
 const Home = () => {
   const navigate = useNavigate()
-  const { getTotal, cryptos } = useCryptos({
-    BTC: 19876.28,
-    BNB: 6000,
-    ETH: 4000
-  })
+  const { getTotal, cryptos } = useCryptos(window.localStorage.getItem('cryptos') ? JSON.parse(window.localStorage.getItem('cryptos')) : initialCryptos)
 
   const [sendIsOpen, setSendIsOpen] = useState(false)
   const [receiveIsOpen, setReceiveIsOpen] = useState(false)
