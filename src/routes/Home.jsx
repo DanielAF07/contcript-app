@@ -17,7 +17,7 @@ const initialCryptos = {
 
 const Home = () => {
   const navigate = useNavigate()
-  const { getTotal, cryptos } = useCryptos(window.localStorage.getItem('cryptos') ? JSON.parse(window.localStorage.getItem('cryptos')) : initialCryptos)
+  const { getTotal, cryptos } = useCryptos(initialCryptos)
 
   const [sendIsOpen, setSendIsOpen] = useState(false)
   const [receiveIsOpen, setReceiveIsOpen] = useState(false)
