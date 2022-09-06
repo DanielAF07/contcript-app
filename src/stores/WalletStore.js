@@ -13,7 +13,10 @@ export const useWalletStore = create(persist((set, get) => ({
     if (key) return get().cryptos[key]
     return sumAllCryptos(get().cryptos)
   }
-})))
+})), {
+  name: 'cryptosState',
+  getStorage: () => window.sessionStorage
+})
 
 const sumAllCryptos = (cryptos) => {
   return Object.values(cryptos).reduce((a, b) => a + b, 0)
