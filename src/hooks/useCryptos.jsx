@@ -28,11 +28,6 @@ const useCryptos = (initialState) => {
     toast.error(`${crypto}: -$${quantity}`, {
       icon: '💸'
     })
-    window.localStorage.setItem('cryptos', JSON.stringify({
-      ...cryptos,
-      [crypto]: newQuantity
-    }))
-    console.log('Sending and localStorage updated')
   }
 
   const receiveCryptos = ({ crypto, quantity }) => {
@@ -42,10 +37,6 @@ const useCryptos = (initialState) => {
     toast.success(`${crypto}: +$${quantity}`, {
       icon: '🤑'
     })
-    window.localStorage.setItem('cryptos', JSON.stringify({
-      ...cryptos,
-      [crypto]: newQuantity
-    }))
   }
 
   const getTotal = (cryptoKey) => {
